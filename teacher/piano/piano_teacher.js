@@ -8,9 +8,9 @@ function playSound() {
     // const response3 = await fetch('C:/Users/Bobby/Downloads/25405__tedagame__88-piano-keys-long-reverb/448536__tedagame__b4.ogg');
     // const buffer3 = await response2.arrayBuffer();
 
-    const audio1 = new Audio('C:/Users/Bobby/Downloads/25405__tedagame__88-piano-keys-long-reverb/448613__tedagame__e4.ogg');
-    const audio2 = new Audio('C:/Users/Bobby/Downloads/25405__tedagame__88-piano-keys-long-reverb/448592__tedagame__g4.ogg');
-    const audio3 = new Audio('C:/Users/Bobby/Downloads/25405__tedagame__88-piano-keys-long-reverb/448536__tedagame__b4.ogg');
+    const audio1 = new Audio('../../25405__tedagame__88-piano-keys-long-reverb/448613__tedagame__e4.ogg');
+    const audio2 = new Audio('../../25405__tedagame__88-piano-keys-long-reverb/448592__tedagame__g4.ogg');
+    const audio3 = new Audio('../../25405__tedagame__88-piano-keys-long-reverb/448536__tedagame__b4.ogg');
 
     audio1.currentTime = 0.1;
     audio2.currentTime = 0.1;
