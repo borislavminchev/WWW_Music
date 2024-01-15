@@ -12,9 +12,9 @@ function playSound() {
     const audio2 = new Audio('C:/Users/Bobby/Downloads/25405__tedagame__88-piano-keys-long-reverb/448592__tedagame__g4.ogg');
     const audio3 = new Audio('C:/Users/Bobby/Downloads/25405__tedagame__88-piano-keys-long-reverb/448536__tedagame__b4.ogg');
 
-    audio1.currentTime = 0.1
-    audio2.currentTime = 0.1
-    audio3.currentTime = 0.1
+    audio1.currentTime = 0.1;
+    audio2.currentTime = 0.1;
+    audio3.currentTime = 0.1;
 
     audio1.play();
     audio2.play();
@@ -26,5 +26,5 @@ function playSound() {
         audio3.pause();
     }, 1000)
     
-    console.log('ok')
+    console.log('ok');
 }
