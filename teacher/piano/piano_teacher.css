@@ -1,3 +1,35 @@
 body {
     background-color: green;
 }
+
+.piano-section {
+display: flex;
+justify-content: center;
+align-items: top;
+margin: 0;
+}
+
+.piano-section > button {
+    width: 40px;
+    height: 120px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    border: 1px solid #ccc;
+    
+}
+
+.piano-section > .white-key {
+    background-color: #fff;
+}
+
+.piano-section > .black-key {
+    height: 80px;
+    background-color: #000;
+    color: #fff;
+    position: relative;
+    margin-left: -20px;
+    margin-right: -20px;
+}
