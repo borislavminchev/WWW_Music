@@ -10,7 +10,7 @@ const pianoTones = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 
 const pianoTonesIn = ['C', 'C-', 'D', 'D-', 'E', 'F', 'F-', 'G', 'G-', 'A', 'A-', 'B']
 
 function playSound(NoteName) {
-    console.log("../../piano-keys/"+NoteName.toLowerCase()+".ogg");
+    //console.log("../../piano-keys/"+NoteName.toLowerCase()+".ogg");
     playNote("../../piano-keys/"+NoteName.toLowerCase()+".ogg",1000,1.0,0,NoteName);
 
 }
@@ -29,7 +29,7 @@ for (let i = startingIndex; i < pianoKeys + startingIndex; i++) {
     const currentNoteIn =pianoTonesIn[i%pianoTones.length];
 
     button.id=`${currentNoteIn}${currentGama}`
-    
+
     button.innerHTML = `${currentNote}`
     if(currentNote == "B") {
         currentGama++;
