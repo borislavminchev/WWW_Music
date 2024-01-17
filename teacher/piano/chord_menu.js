@@ -15,9 +15,7 @@ function getAudio(note) {
 
 function playChord(chord) {
     chord.forEach(note => {
-        const rootFolder = '../../piano-keys/';
-        const fileName = note.toLowerCase()+".ogg";
-        playNote(rootFolder + fileName,1000,1.0,0,note);
+        playNote(1000,1.0,0,note);
     });
 }
 
@@ -54,7 +52,6 @@ function chordIncluded(chord){
 
 chordDropdown.addEventListener('change', () => {
     const chord = chordDropdown.value;
-    console.log(chord)
     if(!chordIncluded(chord)) {
         addNewChord(chord)
     }
