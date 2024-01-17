@@ -1,25 +1,34 @@
 //import {isBlackKey} from "./init_piano";
 
-function playNote(noteLocation,durration,volumeValue,millsecFromStart,NoteName){
+function playNote(durration,volumeValue,millsecFromStart,NoteName){
 
     setTimeout(() => {
-        const audio = new Audio(noteLocation);
+
+        const audio = new Audio('../../piano-keys/'+NoteName.toLowerCase()+'.ogg');
+
         audio.currentTime = 0.1;
+
         audio.volume = parseFloat(volumeValue);
 
         audio.play();
         let keybord=document.getElementsByClassName('piano-section')[0];
-        //console.log('#'+NoteName.toUpperCase());
         
-        let locButton = keybord.querySelector('#'+NoteName.toUpperCase());
+        let searchId = NoteName.toUpperCase()
+        
+        let locButton = keybord.querySelector('#'+searchId);
         const old = locButton.style.backgroundColor; 
         locButton.style.backgroundColor = 'red';
 
+        setTimeout(() => {
+
+            locButton.style.backgroundColor = locButton.classList == 'black-key'?'black':'white';
+
+        }, durration/2)
 
         setTimeout(() => {
             audio.pause();
-            locButton.style.backgroundColor = locButton.classList == 'black-key'?'black':'white';
-            console.log('op')
+            
+            //console.log('op')
         }, durration)
 
         
@@ -101,24 +110,88 @@ function playSound1() {
 
 function playSound2(){
 
-    playNote('../../piano-keys/c4.ogg',1000,1.0,0,'c4');
-    playNote('../../piano-keys/e4.ogg',1000,1.0,0,'e4');
-    playNote('../../piano-keys/g4.ogg',1000,1.0,0,'g4');
+    playNote(1000,1.0,0,'c4');
+    playNote(1000,1.0,0,'d-4');
+    playNote(1000,1.0,0,'g4');
 
-    playNote('../../piano-keys/c4.ogg',500,1.0,1001,'c4');
-    playNote('../../piano-keys/e4.ogg',500,1.0,1500,'e4');
-    playNote('../../piano-keys/g4.ogg',500,1.0,2000,'g4');
-    playNote('../../piano-keys/e4.ogg',500,1.0,2500,'e4');
-    playNote('../../piano-keys/c4.ogg',500,1.0,3000,'c4');
+    playNote(500,1.0,1001,'c4');
+    playNote(500,1.0,1500,'d-4');
+    playNote(500,1.0,2000,'g4');
+    playNote(500,1.0,2500,'d-4');
+    playNote(500,1.0,3000,'c4');
 
-    playNote('../../piano-keys/c2.ogg',2000,1.0,4000,'c2');
-    playNote('../../piano-keys/c3.ogg',2000,1.0,4000,'c3');
-    playNote('../../piano-keys/g3.ogg',2000,1.0,4000,'g3');
-    playNote('../../piano-keys/c4.ogg',2000,1.0,4000,'c4');
+
+    playNote(2000,1.0,4000,'c2');
+    playNote(2000,1.0,4000,'c3');
+    playNote(2000,1.0,4000,'g3');
+    playNote(2000,1.0,4000,'c4');
 
 }
 
 function playSound3(){
-    //console.log(isBlackKey(15-3));
+
+    let timePl=295;// time playe
+    let br=0;
+
+    // тя не може да обича
+    playNote(8.5*timePl,1.0,br*(timePl+5),'a2');//chord
+    playNote(8.5*timePl,1.0,br*(timePl+5),'e3');
+
+    playNote(timePl,1.0,br*(timePl+5),'c4');br++;
+    playNote(timePl,1.0,br*(timePl+5),'c4');br++;
+    playNote(timePl,1.0,br*(timePl+5),'c4');br++;
+    playNote(timePl/2,1.0,br*(timePl+5),'c4');
+    playNote(timePl+timePl/2,1.0,br*(timePl+5)+timePl/2,'c4');br++;br++;
+    playNote(timePl/2,1.0,br*(timePl+5),'b3');
+    playNote(timePl+timePl/2,1.0,br*(timePl+5)+timePl/2,'d4');br++;br++
+    playNote(timePl,1.0,br*(timePl+5),'c4');br++;
+
+
+    // не познава любовта
+    playNote(9*timePl,1.0,br*(timePl+5),'a2');//chord
+    playNote(9*timePl,1.0,br*(timePl+5),'e3');
+
+    playNote(timePl,1.0,br*(timePl+5),'c4');br++;
+    playNote(timePl,1.0,br*(timePl+5),'c4');br++;
+    playNote(timePl,1.0,br*(timePl+5),'c4');br++;
+    playNote(timePl/2,1.0,br*(timePl+5),'c4');
+    playNote(timePl+timePl/2,1.0,br*(timePl+5)+timePl/2,'e4');br++;br++
+    playNote(timePl,1.0,br*(timePl+5),'d4');br++;
+    playNote(timePl,1.0,br*(timePl+5),'c4');br++;
+    playNote(timePl/2,1.0,br*(timePl+5),'b3');
+    playNote(timePl,1.0,br*(timePl+5)+timePl/2,'a3');br++;
+
+    //като ледена кралица 
+    playNote(9*timePl,1.0,br*(timePl+5),'g2');//chord
+    playNote(9*timePl,1.0,br*(timePl+5),'d3');
+
+    playNote(timePl,1.0,br*(timePl+5),'b3');br++;
+    playNote(timePl,1.0,br*(timePl+5),'b3');br++;
+    playNote(timePl,1.0,br*(timePl+5),'b3');br++;
+    playNote(timePl/2,1.0,br*(timePl+5),'b3');
+    playNote(timePl+timePl/2,1.0,br*(timePl+5)+timePl/2,'b3');br++;br++
+    playNote(timePl/2,1.0,br*(timePl+5),'a3');
+    playNote(timePl+timePl/2,1.0,br*(timePl+5)+timePl/2,'c4');br++;br++
+    playNote(timePl,1.0,br*(timePl+5),'b3');br++;
+    
+    //вледенява в теб страстта
+    playNote(3.5*timePl,1.0,br*(timePl+5),'f2');//chord
+    playNote(3.5*timePl,1.0,br*(timePl+5),'c3');
+
+    playNote(timePl,1.0,br*(timePl+5),'a3');br++;
+    playNote(timePl,1.0,br*(timePl+5),'b3');br++;
+    playNote(timePl,1.0,br*(timePl+5),'b3');br++;
+    playNote(timePl/2,1.0,br*(timePl+5),'a3');
+
+    playNote(2.5*timePl,1.0,br*(timePl+5),'g2');//chord
+    playNote(2.5*timePl,1.0,br*(timePl+5),'d3');
+
+    playNote(timePl+timePl/2,1.0,br*(timePl+5)+timePl/2,'c4');br++;br++;
+    playNote(timePl,1.0,br*(timePl+5),'b3');br++;
+
+    playNote(3*timePl,1.0,br*(timePl+5),'a2');//chord
+    playNote(3*timePl,1.0,br*(timePl+5),'e3');
+
+    playNote(timePl,1.0,br*(timePl+5),'a3');br++;
 
 }

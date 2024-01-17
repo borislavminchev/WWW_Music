@@ -1,14 +1,8 @@
-const audioMap = {
-    'C': new Audio('path-to-C-sound.mp3'),
-    'D': new Audio('path-to-D-sound.mp3'),
-    'E': new Audio('path-to-E-sound.mp3'),
-};
-
 const chordMap = {
-    'Major_C' : ['C', 'E', 'G'],
-    'Major_F' : ['F', 'A', 'C'],
-    'Major_G' : ['G', 'B', 'D'],
-    'Minor_A' : ['A', 'C', 'E']
+    'Major_C4' : ['C4', 'E4', 'G4'],
+    'Major_F4' : ['F4', 'A4', 'C4'],
+    'Major_G4' : ['G4', 'B4', 'D4'],
+    'Minor_A4' : ['A4', 'C4', 'E4']
 }
 
 
@@ -21,9 +15,7 @@ function getAudio(note) {
 
 function playChord(chord) {
     chord.forEach(note => {
-        const audio = getAudio(note);
-        console.log('playing audio' + note)
-        //audio.play();
+        playNote(1000,1.0,0,note);
     });
 }
 
@@ -60,7 +52,6 @@ function chordIncluded(chord){
 
 chordDropdown.addEventListener('change', () => {
     const chord = chordDropdown.value;
-    console.log(chord)
     if(!chordIncluded(chord)) {
         addNewChord(chord)
     }
