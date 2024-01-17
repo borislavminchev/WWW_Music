@@ -111,6 +111,7 @@ function playSound2(){
     playNote('../../piano-keys/g4.ogg',500,1.0,2000,'g4');
     playNote('../../piano-keys/d-4.ogg',500,1.0,2500,'d-4');
     playNote('../../piano-keys/c4.ogg',500,1.0,3000,'c4');
+    
 
     playNote('../../piano-keys/c2.ogg',2000,1.0,4000,'c2');
     playNote('../../piano-keys/c3.ogg',2000,1.0,4000,'c3');
@@ -120,6 +121,6 @@ function playSound2(){
 }
 
 function playSound3(){
-    //console.log(isBlackKey(15-3));
+
 
 }
