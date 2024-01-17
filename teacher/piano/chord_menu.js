@@ -1,9 +1,3 @@
-const audioMap = {
-    'C': new Audio('path-to-C-sound.mp3'),
-    'D': new Audio('path-to-D-sound.mp3'),
-    'E': new Audio('path-to-E-sound.mp3'),
-};
-
 const chordMap = {
     'Major_C4' : ['C4', 'E4', 'G4'],
     'Major_F4' : ['F4', 'A4', 'C4'],
@@ -21,9 +15,9 @@ function getAudio(note) {
 
 function playChord(chord) {
     chord.forEach(note => {
-        //const audio = getAudio(note);
-        playNote("../../piano-keys/"+note.toLowerCase()+".ogg",1000,1.0,0,note);
-        //audio.play();
+        const rootFolder = '../../piano-keys/';
+        const fileName = note.toLowerCase()+".ogg";
+        playNote(rootFolder + fileName,1000,1.0,0,note);
     });
 }
 
