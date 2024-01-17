@@ -7,6 +7,7 @@ function isBlackKey(index) {
 const audio = new Audio('../../piano-keys/e4.ogg');
 
 const pianoTones = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']
+const pianoTonesIn = ['C', 'C-', 'D', 'D-', 'E', 'F', 'F-', 'G', 'G-', 'A', 'A-', 'B']
 
 function playSound(NoteName) {
     console.log("../../piano-keys/"+NoteName.toLowerCase()+".ogg");
@@ -23,8 +24,12 @@ pianoContainer.classList.add('piano-section')
 
 for (let i = startingIndex; i < pianoKeys + startingIndex; i++) {
     const button = document.createElement('button');
+
     const currentNote =pianoTones[i%pianoTones.length];
-    button.id=`${currentNote}${currentGama}`
+    const currentNoteIn =pianoTonesIn[i%pianoTones.length];
+
+    button.id=`${currentNoteIn}${currentGama}`
+    
     button.innerHTML = `${currentNote}`
     if(currentNote == "B") {
         currentGama++;

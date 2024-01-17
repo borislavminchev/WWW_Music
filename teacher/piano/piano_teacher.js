@@ -103,13 +103,13 @@ function playSound1() {
 function playSound2(){
 
     playNote('../../piano-keys/c4.ogg',1000,1.0,0,'c4');
-    playNote('../../piano-keys/e4.ogg',1000,1.0,0,'e4');
+    playNote('../../piano-keys/d-4.ogg',1000,1.0,0,'d-4');
     playNote('../../piano-keys/g4.ogg',1000,1.0,0,'g4');
 
     playNote('../../piano-keys/c4.ogg',500,1.0,1001,'c4');
-    playNote('../../piano-keys/e4.ogg',500,1.0,1500,'e4');
+    playNote('../../piano-keys/d-4.ogg',500,1.0,1500,'d-4');
     playNote('../../piano-keys/g4.ogg',500,1.0,2000,'g4');
-    playNote('../../piano-keys/e4.ogg',500,1.0,2500,'e4');
+    playNote('../../piano-keys/d-4.ogg',500,1.0,2500,'d-4');
     playNote('../../piano-keys/c4.ogg',500,1.0,3000,'c4');
 
     playNote('../../piano-keys/c2.ogg',2000,1.0,4000,'c2');
