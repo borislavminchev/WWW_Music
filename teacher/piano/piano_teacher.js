@@ -1,5 +1,6 @@
+//import {isBlackKey} from "./init_piano";
 
-function playNote(noteLocation,durration,volumeValue,millsecFromStart){
+function playNote(noteLocation,durration,volumeValue,millsecFromStart,NoteName){
 
     setTimeout(() => {
         const audio = new Audio(noteLocation);
@@ -7,11 +8,21 @@ function playNote(noteLocation,durration,volumeValue,millsecFromStart){
         audio.volume = parseFloat(volumeValue);
 
         audio.play();
+        let keybord=document.getElementsByClassName('piano-section')[0];
+        //console.log('#'+NoteName.toUpperCase());
+        
+        let locButton = keybord.querySelector('#'+NoteName.toUpperCase());
+        const old = locButton.style.backgroundColor; 
+        locButton.style.backgroundColor = 'red';
+
 
         setTimeout(() => {
             audio.pause();
+            locButton.style.backgroundColor = locButton.classList == 'black-key'?'black':'white';
+            console.log('op')
         }, durration)
 
+        
     }, millsecFromStart)
 }
 
@@ -90,18 +101,24 @@ function playSound1() {
 
 function playSound2(){
 
-    playNote('../../piano-keys/c4.ogg',1000,1.0,0);
-    playNote('../../piano-keys/e4.ogg',1000,1.0,0);
-    playNote('../../piano-keys/g4.ogg',1000,1.0,0);
+    playNote('../../piano-keys/c4.ogg',1000,1.0,0,'c4');
+    playNote('../../piano-keys/e4.ogg',1000,1.0,0,'e4');
+    playNote('../../piano-keys/g4.ogg',1000,1.0,0,'g4');
 
-    playNote('../../piano-keys/c4.ogg',500,1.0,1000);
-    playNote('../../piano-keys/e4.ogg',500,1.0,1500);
-    playNote('../../piano-keys/g4.ogg',500,1.0,2000);
-    playNote('../../piano-keys/e4.ogg',500,1.0,2500);
-    playNote('../../piano-keys/c4.ogg',500,1.0,3000);
+    playNote('../../piano-keys/c4.ogg',500,1.0,1001,'c4');
+    playNote('../../piano-keys/e4.ogg',500,1.0,1500,'e4');
+    playNote('../../piano-keys/g4.ogg',500,1.0,2000,'g4');
+    playNote('../../piano-keys/e4.ogg',500,1.0,2500,'e4');
+    playNote('../../piano-keys/c4.ogg',500,1.0,3000,'c4');
 
-    playNote('../../piano-keys/c3.ogg',2000,1.0,4000);
-    playNote('../../piano-keys/g3.ogg',2000,1.0,4000);
-    playNote('../../piano-keys/c4.ogg',2000,1.0,4000);
+    playNote('../../piano-keys/c2.ogg',2000,1.0,4000,'c2');
+    playNote('../../piano-keys/c3.ogg',2000,1.0,4000,'c3');
+    playNote('../../piano-keys/g3.ogg',2000,1.0,4000,'g3');
+    playNote('../../piano-keys/c4.ogg',2000,1.0,4000,'c4');
+
+}
+
+function playSound3(){
+    //console.log(isBlackKey(15-3));
 
 }
