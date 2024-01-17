@@ -14,16 +14,24 @@ function playSound() {
 
 const pianoKeys = 88;
 const startingKey = 'A'
+let currentGama = 0;
 const startingIndex = pianoTones.indexOf(startingKey);
 const pianoContainer = document.createElement('section');
 pianoContainer.classList.add('piano-section')
 
 for (let i = startingIndex; i < pianoKeys + startingIndex; i++) {
     const button = document.createElement('button');
-    button.innerHTML = `${pianoTones[i%pianoTones.length]}`
+    const currentNote =pianoTones[i%pianoTones.length];
+    button.id=`${currentNote}${currentGama}`
+    button.innerHTML = `${currentNote}`
+    if(currentNote == "B") {
+        currentGama++;
+    }
     button.addEventListener('click', playSound);
     button.classList.add(isBlackKey(i) ? 'black-key' : 'white-key');
     pianoContainer.appendChild(button);
 }
 
 document.body.appendChild(pianoContainer);
+
+
