@@ -5,10 +5,10 @@ const audioMap = {
 };
 
 const chordMap = {
-    'Major_C' : ['C', 'E', 'G'],
-    'Major_F' : ['F', 'A', 'C'],
-    'Major_G' : ['G', 'B', 'D'],
-    'Minor_A' : ['A', 'C', 'E']
+    'Major_C4' : ['C4', 'E4', 'G4'],
+    'Major_F4' : ['F4', 'A4', 'C4'],
+    'Major_G4' : ['G4', 'B4', 'D4'],
+    'Minor_A4' : ['A4', 'C4', 'E4']
 }
 
 
@@ -21,8 +21,8 @@ function getAudio(note) {
 
 function playChord(chord) {
     chord.forEach(note => {
-        const audio = getAudio(note);
-        console.log('playing audio' + note)
+        //const audio = getAudio(note);
+        playNote("../../piano-keys/"+note.toLowerCase()+".ogg",1000,1.0,0,note);
         //audio.play();
     });
 }
