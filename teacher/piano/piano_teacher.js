@@ -9,9 +9,10 @@ function playNote(noteLocation,durration,volumeValue,millsecFromStart,NoteName){
 
         audio.play();
         let keybord=document.getElementsByClassName('piano-section')[0];
-        //console.log('#'+NoteName.toUpperCase());
         
-        let locButton = keybord.querySelector('#'+NoteName.toUpperCase());
+        let searchId = NoteName.toUpperCase()
+        
+        let locButton = keybord.querySelector('#'+searchId);
         const old = locButton.style.backgroundColor; 
         locButton.style.backgroundColor = 'red';
 

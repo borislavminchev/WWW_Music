@@ -7,9 +7,11 @@ function isBlackKey(index) {
 const audio = new Audio('../../piano-keys/e4.ogg');
 
 const pianoTones = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']
-function playSound() {
-    audio.currentTime = 0;
-    audio.play();
+
+function playSound(NoteName) {
+    console.log("../../piano-keys/"+NoteName.toLowerCase()+".ogg");
+    playNote("../../piano-keys/"+NoteName.toLowerCase()+".ogg",1000,1.0,0,NoteName);
+
 }
 
 const pianoKeys = 88;
@@ -27,7 +29,7 @@ for (let i = startingIndex; i < pianoKeys + startingIndex; i++) {
     if(currentNote == "B") {
         currentGama++;
     }
-    button.addEventListener('click', playSound);
+    button.addEventListener('click', () => playSound(button.id));
     button.classList.add(isBlackKey(i) ? 'black-key' : 'white-key');
     pianoContainer.appendChild(button);
 }
