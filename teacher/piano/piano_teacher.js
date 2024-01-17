@@ -16,11 +16,16 @@ function playNote(noteLocation,durration,volumeValue,millsecFromStart,NoteName){
         const old = locButton.style.backgroundColor; 
         locButton.style.backgroundColor = 'red';
 
+        setTimeout(() => {
+
+            locButton.style.backgroundColor = locButton.classList == 'black-key'?'black':'white';
+
+        }, durration/2)
 
         setTimeout(() => {
             audio.pause();
-            locButton.style.backgroundColor = locButton.classList == 'black-key'?'black':'white';
-            console.log('op')
+            
+            //console.log('op')
         }, durration)
 
         
@@ -111,7 +116,7 @@ function playSound2(){
     playNote('../../piano-keys/g4.ogg',500,1.0,2000,'g4');
     playNote('../../piano-keys/d-4.ogg',500,1.0,2500,'d-4');
     playNote('../../piano-keys/c4.ogg',500,1.0,3000,'c4');
-    
+
 
     playNote('../../piano-keys/c2.ogg',2000,1.0,4000,'c2');
     playNote('../../piano-keys/c3.ogg',2000,1.0,4000,'c3');
@@ -121,6 +126,42 @@ function playSound2(){
 }
 
 function playSound3(){
+
+    let beat=295;
+    let br=0;
+
+    // тя не може да обича
+    playNote('../../piano-keys/c4.ogg',beat,1.0,br*(beat+5),'c4');br++;
+    playNote('../../piano-keys/c4.ogg',beat,1.0,br*(beat+5),'c4');br++;
+    playNote('../../piano-keys/c4.ogg',beat,1.0,br*(beat+5),'c4');br++;
+    playNote('../../piano-keys/c4.ogg',beat,1.0,br*(beat+5),'c4');br++;
+    playNote('../../piano-keys/c4.ogg',beat,1.0,br*(beat+5),'c4');br++;
+    playNote('../../piano-keys/b3.ogg',beat,1.0,br*(beat+5),'b3');br++;
+    playNote('../../piano-keys/d4.ogg',beat,1.0,br*(beat+5),'d4');br++;
+    playNote('../../piano-keys/c4.ogg',beat,1.0,br*(beat+5),'c4');br++;
+
+    // не познава любовта
+    playNote('../../piano-keys/c4.ogg',beat,1.0,br*(beat+5),'c4');br++;
+    playNote('../../piano-keys/c4.ogg',beat,1.0,br*(beat+5),'c4');br++;
+    playNote('../../piano-keys/c4.ogg',beat,1.0,br*(beat+5),'c4');br++;
+    playNote('../../piano-keys/c4.ogg',beat,1.0,br*(beat+5),'c4');br++;
+    playNote('../../piano-keys/e4.ogg',beat,1.0,br*(beat+5),'e4');br++;
+    playNote('../../piano-keys/d4.ogg',beat,1.0,br*(beat+5),'d4');br++;
+    playNote('../../piano-keys/c4.ogg',beat,1.0,br*(beat+5),'c4');br++;
+    playNote('../../piano-keys/b3.ogg',beat,1.0,br*(beat+5),'b3');br++;
+    playNote('../../piano-keys/a3.ogg',beat,1.0,br*(beat+5),'a3');br++;
+
+    //като ледена кралица 
+    //playNote('../../piano-keys/a4.ogg',199,1.0,0,'c4');
+    playNote('../../piano-keys/b3.ogg',beat,1.0,br*(beat+5),'b3');br++;
+    playNote('../../piano-keys/b3.ogg',beat,1.0,br*(beat+5),'b3');br++;
+    playNote('../../piano-keys/b3.ogg',beat,1.0,br*(beat+5),'b3');br++;
+    playNote('../../piano-keys/b3.ogg',beat,1.0,br*(beat+5),'b3');br++;
+    playNote('../../piano-keys/a3.ogg',beat,1.0,br*(beat+5),'a3');br++;
+    playNote('../../piano-keys/c4.ogg',beat,1.0,br*(beat+5),'c4');br++;
+    playNote('../../piano-keys/b3.ogg',beat,1.0,br*(beat+5),'b3');br++;
+    
+    //вледенява в теб страстта
 
 
 }
