@@ -1,10 +1,11 @@
 function isBlackKey(index) {
     const pattern = [0,1,0,1,0,0,1,0,1,0,1,0];
-    const normalizedIndex = (index % pattern.length + pattern.length) % pattern.length;
+    const normalizedIndex = index % pattern.length;
     return pattern[normalizedIndex] === 1;
 }
 
-const audio = new Audio('../../25405__tedagame__88-piano-keys-long-reverb/448613__tedagame__e4.ogg');
+const audio = new Audio('../../piano-keys/e4.ogg');
+
 const pianoTones = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']
 function playSound() {
     audio.currentTime = 0;
