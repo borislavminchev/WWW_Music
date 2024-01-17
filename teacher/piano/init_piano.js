@@ -11,7 +11,7 @@ const pianoTonesIn = ['C', 'C-', 'D', 'D-', 'E', 'F', 'F-', 'G', 'G-', 'A', 'A-'
 
 function playSound(NoteName) {
     //console.log("../../piano-keys/"+NoteName.toLowerCase()+".ogg");
-    playNote("../../piano-keys/"+NoteName.toLowerCase()+".ogg",1000,1.0,0,NoteName);
+    playNote(1000,1.0,0,NoteName);
 
 }
 
