@@ -29,6 +29,7 @@
     <script src="piano_teacher.js"></script>
 
     <button type="button" onclick="startDemo()">demo</button>
+    <button type="button" onclick="startDemo2()">demo2</button>
     <script>
         function startDemo() {
 
@@ -53,6 +54,22 @@
             }); 
         }
     </script>
+
+<script>
+    function startDemo2() {
+
+        fetch('../../db/demo.php', {
+            method: 'GET',
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        }); 
+    }
+</script>
     
 </body>
 </html>

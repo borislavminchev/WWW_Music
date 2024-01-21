@@ -14,6 +14,7 @@ class Db {
                 PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8",
                 PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
             ]);
+        
     }
 
     public function getConnection() {
@@ -23,10 +24,10 @@ class Db {
     public function tableExists($table) {
         $query = "SHOW TABLES LIKE '$table'";
         $result = $this->connection->query($query);
-        return $result->rowCount() != 0;
+        return $result->rowCount() !== 0;
     }
 
-    public function createTable($table, $columns) {
+    public function createTable($table, $columns, $options) {
         // $connection = $db->getConnection();
         // $query = "SELECT * FROM users WHERE id = :id";
         // $statement = $connection->prepare($query);
@@ -34,30 +35,40 @@ class Db {
         // $statement->execute();
         // $user = $statement->fetch();
         // $statement->closeCursor();
-
-        if (!$this->tableExists($table)) {
+        
+        if ($this->tableExists($table) === false) {
             $columnsString = implode(", ", array_map(function ($columnName, $columnType) {
                 return "$columnName $columnType";
             }, array_keys($columns), $columns));
 
-            $createTableQuery = "CREATE TABLE :tableName (:columnsString)";
+            $optionsString = implode(", ", array_map(function ($option) {
+                return "$option";
+            }, $options));
+
+            if(count($options) >= 1) {
+                $optionsString = ", $optionsString";
+            }
+
+            $createTableQuery = "CREATE TABLE $table ($columnsString$optionsString);";
             $statement = $this->connection->prepare($createTableQuery);
+            
             try {
-                $statement->bindParam(':tableName', $table, PDO::PARAM_STR);
-                $statement->bindParam(':columnsString', $columnsString, PDO::PARAM_STR);
                 $statement->execute();
-                $result = $statement->fetch();
-                if (!$result) {
-                    throw new Exception("Couldn't create table: $table");
-                }
             } catch (Exception $e) {
-                echo "Error creating table $table: " . $e->getMessage() . "\n";
+                echo $e->getMessage();
                 return false;
-            } finally {
+            }
+            finally {
                 $statement->closeCursor();
             }
-        } 
+        }
 
         return true;
     }
 }
+
+//     CREATE TABLE `music_teacher`.`notes` (
+//   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+//   `name` VARCHAR(45) NOT NULL,
+//   `path` VARCHAR(70) NOT NULL,
+//   PRIMARY KEY (`id`));
