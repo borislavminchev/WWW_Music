@@ -1,5 +1,7 @@
 <?php
 
+require_once("piano_notes.php");
+
 header('Content-Type: application/json');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -23,5 +25,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo json_encode(['success' => false, 'error' => 'Invalid JSON data']);
     }
 } else {
-    echo json_encode(['success' => false, 'error' => 'Invalid request method']);
+    $res = createNotesTable();
+    if ($res !== false) {
+        echo json_encode(['success' => true, 'data' => "Created table notes"]);
+    } else {
+        echo json_encode(['success' => false, 'error' => 'Problem while craeting table notes']);
+    }
 }
