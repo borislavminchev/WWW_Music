@@ -24,9 +24,35 @@
         <option value="Minor_A4">Minor_A4</option>
         <option value="Major_G4">Major_G4</option>
     </select>
-    
+
     <script src="chord_menu.js"></script>
     <script src="piano_teacher.js"></script>
+
+    <button type="button" onclick="startDemo()">demo</button>
+    <script>
+        function startDemo() {
+
+            requestData  = {
+                name: 'Bobby',
+                score: 69
+            }
+
+            fetch('../../db/demo.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(requestData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            }); 
+        }
+    </script>
     
 </body>
 </html>
