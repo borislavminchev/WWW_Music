@@ -39,8 +39,8 @@ async function retriveChordNotes(chord) {
 }
 
 async function DisplayTeacher(){
-    let chord =await retriveChordNotes(TeachDropdown.value)//fetch
-    
+    let chord = await retriveChordNotes(TeachDropdown.value)//fetch
+    chord = chord.map(el => el.replace("#", "-"));
     if(teacherflag==0){
         let locContainer = document.createElement('section');
 
