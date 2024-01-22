@@ -22,9 +22,25 @@ for(let i=0;i<12;i++){
 
 }
 
+async function retriveChordNotes(chord) {
+    
+    const arr = await fetch("../../db/piano_chords.php", {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            "chord": chord
+        })
+    })
+    
 
-function DisplayTeacher(chord){
+    return arr.json();
+}
 
+async function DisplayTeacher(){
+    let chord =await retriveChordNotes(TeachDropdown.value)//fetch
+    
     if(teacherflag==0){
         let locContainer = document.createElement('section');
 
@@ -83,6 +99,7 @@ function DisplayTeacher(chord){
         innerContainer.appendChild(checkbox1);
         innerContainer.appendChild( labelcheckbox1);
 
+
         let BassDropdown = document.createElement('select');
         BassDropdown.id = 'bass-chord-dropdown';
         let option0 = document.createElement('option');
@@ -107,8 +124,6 @@ function DisplayTeacher(chord){
 
         innerContainer.appendChild(checkbox2);
         innerContainer.appendChild( labelcheckbox2);
-
-
 
         locContainer.appendChild(innerContainer);
         document.body.appendChild(locContainer);
