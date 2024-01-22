@@ -1,6 +1,9 @@
 <?php
 
 require_once("db.php");
+
+header('Content-Type: application/json');
+
 function createChordTable() {
     $projectRootPath = null;
     if (PHP_SAPI !== 'cli') 
@@ -41,5 +44,20 @@ function getChordNotes($chord) {
     return $notes;
     
 }
-// createChordTable();
-// echo json_encode(getChordNotes("Cmaj"));
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $jsonData = file_get_contents('php://input');
+
+    $requestData = json_decode($jsonData, true);
+    if ($requestData !== null) {
+
+        $result = getChordNotes($requestData["chord"]);
+        
+        echo json_encode($result);
+    } else {
+        
+        echo json_encode([]);
+    }
+} else {
+    echo json_encode([]);
+}
