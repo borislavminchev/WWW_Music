@@ -33,3 +33,13 @@ margin: 0;
     margin-left: -20px;
     margin-right: -20px;
 }
+
+.teacher-chord-section{
+
+    background-color: rgb(95, 155, 71);
+    margin: 3%;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding: 20px;
+
+}

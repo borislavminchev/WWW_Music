@@ -11,16 +11,17 @@ const pianoTonesIn = ['C', 'C-', 'D', 'D-', 'E', 'F', 'F-', 'G', 'G-', 'A', 'A-'
 
 function playSound(NoteName) {
     //console.log("../../piano-keys/"+NoteName.toLowerCase()+".ogg");
-    playNote(1000,1.0,0,NoteName);
+    playNote(NoteName,1000,1.0,0);
 
 }
 
+let teacherflag=0;
 const pianoKeys = 88;
 const startingKey = 'A'
 let currentGama = 0;
 const startingIndex = pianoTones.indexOf(startingKey);
 const pianoContainer = document.createElement('section');
-pianoContainer.classList.add('piano-section')
+pianoContainer.classList.add('piano-section');
 
 for (let i = startingIndex; i < pianoKeys + startingIndex; i++) {
     const button = document.createElement('button');
