@@ -8,7 +8,7 @@ class Db {
         $dbName = $configs['database'];
         $userName = $configs['username'];
         $userPassword = $configs['password'];
-
+        
         $this->database = $dbName;
         $this->connection = new PDO("mysql:host=$dbhost;dbname=$dbName", $userName, $userPassword,
             [

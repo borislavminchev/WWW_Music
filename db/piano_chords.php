@@ -2,7 +2,13 @@
 
 require_once("db.php");
 function createChordTable() {
-    $db = new Db("db_config.php");
+    $projectRootPath = null;
+    if (PHP_SAPI !== 'cli') 
+        $projectRootPath = $_SERVER["DOCUMENT_ROOT"];
+    else 
+        $projectRootPath = getcwd();
+
+    $db = new Db("$projectRootPath/config/db_config.php");
     $columns = [
         'id' => 'INT UNSIGNED NOT NULL AUTO_INCREMENT',
         'chord_name' => 'VARCHAR(20) NOT NULL',
@@ -14,7 +20,13 @@ function createChordTable() {
 }
 
 function getChordNotes($chord) {
-    $db = new Db("db_config.php");
+    $projectRootPath = null;
+    if (PHP_SAPI !== 'cli') 
+        $projectRootPath = $_SERVER["DOCUMENT_ROOT"];
+    else 
+        $projectRootPath = getcwd();
+
+    $db = new Db("$projectRootPath/config/db_config.php");
 
     $options = [
         "chord_name='$chord'"

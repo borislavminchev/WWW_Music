@@ -2,7 +2,14 @@
 require_once("db.php");
 
 function createNotesTable() {
-    $db = new Db("db_config.php");
+    $projectRootPath = null;
+    if (PHP_SAPI !== 'cli') 
+        $projectRootPath = $_SERVER["DOCUMENT_ROOT"];
+    else 
+        $projectRootPath = getcwd();
+    
+    $db = new Db("$projectRootPath/config/db_config.php");
+
     $columns = [
         'id' => 'INT UNSIGNED NOT NULL AUTO_INCREMENT',
         'note_name' => 'VARCHAR(45) NOT NULL',
@@ -15,7 +22,12 @@ function createNotesTable() {
 }
 
 function getNotePath($note) {
-    $db = new Db("db_config.php");
+    $projectRootPath = null;
+    if (PHP_SAPI !== 'cli') 
+        $projectRootPath = $_SERVER["DOCUMENT_ROOT"];
+    else 
+        $projectRootPath = getcwd();
+    $db = new Db("$projectRootPath/config/db_config.php");
 
     $options = [
         "note_name='$note'",
@@ -26,7 +38,10 @@ function getNotePath($note) {
     
     $path = $resultPath[0]['path'];
 
-    return $path;
-}
+    $soundConfig = include("$projectRootPath/config/sound_config.php");
+    $soundRootPath = $soundConfig['sound_path_root'];
 
+    return "$soundRootPath$path";
+}
+// createNotesTable();
 // echo getNotePath("C4");
