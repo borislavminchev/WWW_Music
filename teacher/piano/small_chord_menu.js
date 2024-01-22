@@ -1,3 +1,4 @@
+
 const chordMap = {
     'Major_C4' : ['C4', 'E4', 'G4'],
     'Major_F4' : ['F4', 'A4', 'C4'],
@@ -9,13 +10,13 @@ const chordMap = {
 let chordDropdown = document.getElementById('chord-dropdown');
 let chordMenu = document.getElementById('chord-menu');
 
-function getAudio(note) {
-    return audioMap[note];
-}
+// function getAudio(note) {
+//     return audioMap[note];
+// }
 
 function playChord(chord) {
     chord.forEach(note => {
-        playNote(1000,1.0,0,note);
+        playNote(note,1000,1.0,0);// durration, volume, start, note
     });
 }
 

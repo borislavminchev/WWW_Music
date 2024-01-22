@@ -13,7 +13,8 @@
 <body>
     
     <h1>Piano teacher</h1>
-    <button onclick="playSound2()">Play sound 2</button>
+    <!-- <button onclick="playSound1()">Play sound 1</button> -->
+    <button onclick="playSound2()">Demo sound 1</button>
     <button onclick="playSound3()">Ледена кралица</button>
     <script src="init_piano.js"></script>
 
@@ -25,8 +26,9 @@
         <option value="Major_G4">Major_G4</option>
     </select>
 
-    <script src="chord_menu.js"></script>
+    <script src="small_chord_menu.js"></script>
     <script src="piano_teacher.js"></script>
+    <script src="teacher_chord_menu.js"></script>
 
     <button type="button" onclick="startDemo()">demo</button>
     <button type="button" onclick="startDemo2()">demo2</button>
@@ -55,21 +57,29 @@
         }
     </script>
 
-<script>
-    function startDemo2() {
+    <script>
+        function startDemo2() {
 
-        fetch('../../db/demo.php', {
-            method: 'GET',
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log(data);
-        })
-        .catch(error => {
-            console.error('Error:', error);
-        }); 
-    }
+            fetch('../../db/demo.php', {
+                method: 'GET',
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            }); 
+        }
+    </script>
+
+
+<button onclick="DisplayTeacher(['C','E','G'])">DisplayTeacher button</button>
+
+<script>
+    document.body.appendChild(TeachDropdown);
 </script>
-    
+
+
 </body>
 </html>
