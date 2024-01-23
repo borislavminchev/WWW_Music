@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="shortcut icon" href="#" />
+    <link rel="stylesheet" href="../piano.css">
     <link rel="stylesheet" href="piano_teacher.css">
-    <style>
-        
-      </style>
+    <script src="../services.js"></script>
     
 </head>
 <body>
@@ -26,12 +26,10 @@
         <option value="Major_G4">Major_G4</option>
     </select>
 
-    <script src="small_chord_menu.js"></script>
-    <script src="piano_teacher.js"></script>
-    <script src="teacher_chord_menu.js"></script>
-
+    
     <button type="button" onclick="startDemo()">demo</button>
     <button type="button" onclick="startDemo2()">demo2</button>
+    <button type="button" onclick="DisplayTeacher()">DisplayTeacher button</button>
     <script>
         function startDemo() {
 
@@ -73,13 +71,9 @@
         }
     </script>
 
-
-<button onclick="DisplayTeacher()">DisplayTeacher button</button>
-
-<script>
-    document.body.appendChild(TeachDropdown);
-</script>
-
+    <script src="small_chord_menu.js"></script>
+    <script src="piano_teacher.js"></script>
+    <script src="teacher_chord_menu.js"></script>
 
 </body>
 </html>

@@ -1,4 +1,4 @@
 <?php
 return array(
-    'sound_path_root' => "D:/Users/User/Desktop/web Music playground/WWW_Music"
+    'sound_path_root' => "https://github.com/borislavminchev/WWW_Music/raw/main"
 );
