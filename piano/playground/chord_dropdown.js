@@ -1,11 +1,15 @@
 const  chordDropdown = document.createElement('select');
 chordDropdown.id = 'chord-dropdown';
+let emptyOption = document.createElement('option');
+emptyOption.disabled = true;
+emptyOption.selected = true;
+emptyOption.value = '';
+emptyOption.textContent = 'Select chord';
+chordDropdown.appendChild(emptyOption);
 addChordOptions(chordDropdown);
 const chordMenu = document.createElement('section', {id: 'chord-menu'});
 document.body.appendChild(chordMenu);
 document.body.appendChild(chordDropdown);
-
-
 
 chordDropdown.addEventListener('change', () => {
     const chord = chordDropdown.value;
@@ -31,6 +35,7 @@ function createChordOption(chord) {
 }
 
 async function addChordOptions(container) {
+    
     const chords = await loadChords();
     chords.forEach( chord => {
         container.appendChild(createChordOption(chord));

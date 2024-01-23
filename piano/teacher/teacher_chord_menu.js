@@ -1,10 +1,19 @@
 let TeachDropdown = document.createElement('select');
 TeachDropdown.id = 'teacher-chord-dropdown';
+let teacherflag=0;
 
 let emptyOpt = document.createElement('option');
-emptyOpt.text = '';
+emptyOpt.disabled = true;
+emptyOpt.selected = true;
+emptyOpt.text = 'Select chord';
 emptyOpt.value = 'empty';
 TeachDropdown.appendChild(emptyOpt);
+document.body.appendChild(TeachDropdown);
+
+TeachDropdown.addEventListener('change', () => {
+    closeTeacher()
+    DisplayTeacher()
+})
 
 for(let i=0;i<12;i++){
 
@@ -183,4 +192,3 @@ function playDemoChord(chord,begg_chord,bass,begg_bass,harmony,inversion){// (ar
 
 }
 
-document.body.appendChild(TeachDropdown);

@@ -90,7 +90,7 @@ function playSound(NoteName) {
 
 }
 
-let teacherflag=0;
+
 const pianoKeys = 88;
 const startingKey = 'A'
 let currentGama = 0;
