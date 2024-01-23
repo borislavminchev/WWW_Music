@@ -1,5 +1,3 @@
-
-
 let TeachDropdown = document.createElement('select');
 TeachDropdown.id = 'teacher-chord-dropdown';
 
@@ -75,6 +73,8 @@ async function DisplayTeacher(){
         innerContainer.appendChild(text1);
         
         let btn1=document.createElement('button');
+        chord = chord.map(chord => chord.replace("#", "-"));
+        
         btn1.classList.add('demo-button');
         btn1.textContent = "( "+chord[0]+", "+chord[1]+", "+chord[2]+" )";
         btn1.addEventListener('click', () => playDemoChord(chord,chord[0],checkbox1.checked,BassDropdown.value,checkbox2.checked,0));
@@ -182,3 +182,5 @@ function playDemoChord(chord,begg_chord,bass,begg_bass,harmony,inversion){// (ar
     }
 
 }
+
+document.body.appendChild(TeachDropdown);
