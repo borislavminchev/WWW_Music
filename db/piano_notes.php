@@ -31,6 +31,7 @@ function getNotePath($note) {
 
     $options = [
         "note_name='$note'",
+        
         "instument_type='piano'"
     ];
 
@@ -38,10 +39,27 @@ function getNotePath($note) {
     
     $path = $resultPath[0]['path'];
 
-    $soundConfig = include("$projectRootPath/config/sound_config.php");
-    $soundRootPath = $soundConfig['sound_path_root'];
+    // $soundConfig = include("$projectRootPath/config/sound_config.php");
+    // $soundRootPath = $soundConfig['sound_path_root'];
 
-    return "$soundRootPath$path";
+    return $path;
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $jsonData = file_get_contents('php://input');
+
+    $requestData = json_decode($jsonData, true);
+    if ($requestData !== null) {
+
+        $result = getNotePath($requestData["note"]);
+        
+        echo json_encode($result);
+    } else {
+        
+        echo json_encode("");
+    }
+} else {
+    echo json_encode("");
 }
 // createNotesTable();
-// echo getNotePath("C4");
+// echo json_encode(getNotePath("C4"));
