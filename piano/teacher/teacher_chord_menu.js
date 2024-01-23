@@ -20,25 +20,25 @@ for(let i=0;i<12;i++){
 
 }
 
-async function retriveChordNotes(chord) {
+// async function retriveChordNotes(chord) {
     
-    const arr = await fetch("../../db/piano_chords.php", {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            "chord": chord
-        })
-    })
+//     const arr = await fetch("../../db/piano_chords.php", {
+//         method: 'POST',
+//         headers: {
+//             'Content-Type': 'application/json'
+//         },
+//         body: JSON.stringify({
+//             "chord": chord
+//         })
+//     })
     
 
-    return arr.json();
-}
+//     return arr.json();
+// }
 
 async function DisplayTeacher(){
-    let chord =await retriveChordNotes(TeachDropdown.value)//fetch
-    
+    let chord = await retriveChordNotes(TeachDropdown.value)//fetch
+    // chord = chord.map(el => el.replace("#", "-"));
     if(teacherflag==0){
         let locContainer = document.createElement('section');
 

@@ -7,6 +7,7 @@ function isBlackKey(index) {
 }
 
 async function getNoteAudio(note) {
+
     let path = await fetch("../../db/piano_notes.php", {
         method: 'POST',
         headers: {
@@ -18,13 +19,31 @@ async function getNoteAudio(note) {
     })
    
     path = await path.json();
-    //console.log(path);
+    
     return new Audio(path);
 }
 
-function playNote(NoteName,durration,volumeValue,millsecFromStart){
-    setTimeout(async () => {
 
+async function retriveChordNotes(chord) {
+    
+    const arr = await fetch("../../db/piano_chords.php", {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            "chord": chord
+        })
+    })
+    
+
+    return arr.json();
+}
+
+function playNote(NoteName,durration,volumeValue,millsecFromStart){
+    
+    setTimeout(async () => {
+        
         const audio = await getNoteAudio(NoteName);
 
         audio.currentTime = 0.05;
@@ -36,7 +55,7 @@ function playNote(NoteName,durration,volumeValue,millsecFromStart){
         
         let searchId = NoteName.toUpperCase()
         
-        let locButton = keybord.querySelector('#'+searchId);
+        let locButton = keybord.querySelector('#'+searchId.replace("#", "-"));
         const old = locButton.style.backgroundColor; 
         locButton.style.backgroundColor = 'red';
 
@@ -56,9 +75,12 @@ function playNote(NoteName,durration,volumeValue,millsecFromStart){
     }, millsecFromStart)
 }
 
-function playChord(chord) {
-    chord.forEach(note => {
-        playNote(note,1000,1.0,0);// durration, volume, start, note
+async function playChord(chord, gama=4) {
+    let notes = await retriveChordNotes(chord);
+    
+    notes.forEach(note => {
+        
+        playNote(note+gama,1000,1.0,0);// durration, volume, start, note
     });
 }
 
@@ -74,6 +96,7 @@ const startingKey = 'A'
 let currentGama = 0;
 const startingIndex = pianoTones.indexOf(startingKey);
 const pianoContainer = document.createElement('section');
+pianoContainer.id = 'piano-container';
 pianoContainer.classList.add('piano-section');
 
 for (let i = startingIndex; i < pianoKeys + startingIndex; i++) {

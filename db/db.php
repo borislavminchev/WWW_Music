@@ -76,9 +76,14 @@ class Db {
                 return "$option";
             }, $options));
             
+            if(count($options) !== 0) {
+                $optionsString = "WHERE $optionsString";
+            }
+
             $dbName = $this->database;
 
-            $createTableQuery = "SELECT $columnsString FROM $dbName.$table WHERE $optionsString;";
+            $createTableQuery = "SELECT DISTINCT $columnsString FROM $dbName.$table $optionsString;";
+           
             $statement = $this->connection->prepare($createTableQuery);
             $result=null;
             try {
