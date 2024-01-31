@@ -2,7 +2,7 @@
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     
-    $host = $_SERVER['HTTP_HOST'];
+    $host = 'http://' . $_SERVER['HTTP_HOST'];
     $targetUrl = "/piano/playground/piano_play.html";
     $params = [
         "chord" => ["A", "B"]
@@ -14,6 +14,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     $url = $targetUrl ."?". $queryString;
     // header("Location: $url");
     
-    exec("start chrome \"$host$url\"");
+    exec("start \"\" \"$host$url\"");
     exit;
 }
