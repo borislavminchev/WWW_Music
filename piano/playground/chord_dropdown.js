@@ -18,9 +18,10 @@ chordDropdown.addEventListener('change', () => {
 })
 
 const urlParams = new URLSearchParams(window.location.search);
-const chordList = urlParams.getAll('chord');
+const chordList = urlParams.get('chord');
 if(chordList !== null) {
-    chordList.forEach(chord => {
+    chords = chordList.split('-');
+    chords.forEach(chord => {
         addNewChord(chord)
     })
 }
