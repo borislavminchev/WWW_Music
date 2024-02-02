@@ -8,6 +8,7 @@ emptyOption.textContent = 'Select chord';
 chordDropdown.appendChild(emptyOption);
 addChordOptions(chordDropdown);
 const chordMenu = document.createElement('section', {id: 'chord-menu'});
+chordMenu.id = "chord-menu";
 
 chordDropdown.addEventListener('change', () => {
     const chord = chordDropdown.value;
