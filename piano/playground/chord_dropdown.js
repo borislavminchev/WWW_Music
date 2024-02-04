@@ -8,8 +8,7 @@ emptyOption.textContent = 'Select chord';
 chordDropdown.appendChild(emptyOption);
 addChordOptions(chordDropdown);
 const chordMenu = document.createElement('section', {id: 'chord-menu'});
-document.body.appendChild(chordMenu);
-document.body.appendChild(chordDropdown);
+chordMenu.id = "chord-menu";
 
 chordDropdown.addEventListener('change', () => {
     const chord = chordDropdown.value;
@@ -18,6 +17,18 @@ chordDropdown.addEventListener('change', () => {
     }
     
 })
+
+const urlParams = new URLSearchParams(window.location.search);
+const chordList = urlParams.get('chord');
+if(chordList !== null) {
+    chords = chordList.split('-');
+    chords.forEach(chord => {
+        addNewChord(chord)
+    })
+}
+
+document.body.appendChild(chordMenu);
+document.body.appendChild(chordDropdown);
 
 async function loadChords() {
     const arr = await fetch("../../db/piano_chords.php", {
