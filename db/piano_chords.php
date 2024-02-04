@@ -41,8 +41,25 @@ function getChordNotes($chord) {
         return $queryResult["note"];
     }, $resultNotes);
 
-    return $notes;
-    
+    return $notes; 
+}
+
+function getAllChords() {
+    $projectRootPath = null;
+    if (PHP_SAPI !== 'cli') 
+        $projectRootPath = $_SERVER["DOCUMENT_ROOT"];
+    else 
+        $projectRootPath = getcwd();
+
+    $db = new Db("$projectRootPath/config/db_config.php");
+
+    $chordList = $db->readValues("chords", ["chord_name"], []);
+
+    $chords = array_map(function ($queryResult) {
+        return $queryResult["chord_name"];
+    }, $chordList);
+
+    return $chords;
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -59,5 +76,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo json_encode([]);
     }
 } else {
-    echo json_encode([]);
+    echo json_encode(getAllChords());
 }
+

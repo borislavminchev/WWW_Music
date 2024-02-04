@@ -3,15 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Piano Playground</title>
+    <link rel="shortcut icon" href="#" />
     <link rel="stylesheet" href="../piano.css">
     <link rel="stylesheet" href="piano_play.css">
     <script src="../services.js"></script>
 </head>
 <body>
     <h1>Piano playground</h1>
-    <script>
-        document.body.appendChild(pianoContainer);
-    </script>
+
+    <section id="inputContainer">
+        <input type="text" id="display" readonly>
+    </section>
+
+    <script src="init_piano.js"></script>
+    <script src="chord_dropdown.js"></script>
+    <script src="piano_addons.js"></script>
 </body>
 </html>
