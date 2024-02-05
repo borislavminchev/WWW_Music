@@ -7,7 +7,8 @@ emptyOption.value = '';
 emptyOption.textContent = 'Select chord';
 chordDropdown.appendChild(emptyOption);
 addChordOptions(chordDropdown);
-const chordMenu = document.createElement('section', {id: 'chord-menu'});
+
+const chordMenu = document.createElement('section');
 chordMenu.id = "chord-menu";
 
 chordDropdown.addEventListener('change', () => {
@@ -19,6 +20,7 @@ chordDropdown.addEventListener('change', () => {
 })
 
 const urlParams = new URLSearchParams(window.location.search);
+const logging2 = urlParams.get('logging');
 const chordList = urlParams.get('chord');
 if(chordList !== null) {
     chords = chordList.split('-');
@@ -26,6 +28,9 @@ if(chordList !== null) {
         addNewChord(chord)
     })
 }
+
+
+
 
 document.body.appendChild(chordMenu);
 document.body.appendChild(chordDropdown);
@@ -61,7 +66,10 @@ function createChordButton(chord) {
 }
 
 
-
+async function getChordString(chord) {
+    const chordNotes = await retriveChordNotes(chord);
+    return `${chord} [ ${chordNotes} ]`
+}
 
 function addNewChord(chord) {
     let button = document.createElement('button');
@@ -71,8 +79,12 @@ function addNewChord(chord) {
     button.addEventListener('click', async () => await playChord(chord));
     button.addEventListener('click', async () => {
         const display = document.getElementById("display");
-        const chordNotes = await retriveChordNotes(chord);
-        display.value = `${chord} [ ${chordNotes} ]`
+        const chordString = await getChordString(chord);
+        display.value = chordString;
+        if(logging2 !== null && logging2 == true) {
+            hystory.push(chordString)
+            // console.log(hystory);
+        }
     })
     
     chordMenu.appendChild(button);
@@ -88,6 +100,3 @@ function chordIncluded(chord){
     }
     return false;
 }
-
-
-

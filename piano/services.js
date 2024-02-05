@@ -1,5 +1,7 @@
 const pianoTones = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']
 
+let hystory = [];
+
 function isBlackKey(index) {
     const pattern = [0,1,0,1,0,0,1,0,1,0,1,0];
     const normalizedIndex = index % pattern.length;
