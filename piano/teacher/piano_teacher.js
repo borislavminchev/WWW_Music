@@ -138,3 +138,7 @@ function playSound3(){
     playNote('a3',timePl,1.0,br*(timePl+5));br++;
 
 }
+
+function playsound4(){
+    
+}

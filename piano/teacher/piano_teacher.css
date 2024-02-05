@@ -14,5 +14,9 @@ body {
     padding-left: 5%;
     padding-right: 5%;
     padding: 20px;
+}
+#demos{
 
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
