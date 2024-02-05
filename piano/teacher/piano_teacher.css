@@ -1,5 +1,10 @@
+html{
+    height: 100%;
+} 
 body {
-    background-color: green;
+    
+    background: linear-gradient(#1f8401, #80fe5a);
+    
 }
 
 .teacher-chord-section{
