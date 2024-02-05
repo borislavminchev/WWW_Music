@@ -46,7 +46,7 @@ function playNote(NoteName,durration,volumeValue,millsecFromStart){
         
         const audio = await getNoteAudio(NoteName);
 
-        audio.currentTime = 0.05;
+        audio.currentTime = 0.1;
 
         audio.volume = parseFloat(volumeValue);
 

@@ -48,7 +48,7 @@ function playSound1() {
         audio.currentTime = 0.1;
     }, 1500)
   
-    console.log('ok');
+    //console.log('ok');
 }
 
 function playSound2(){

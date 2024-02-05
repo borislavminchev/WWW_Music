@@ -66,7 +66,7 @@ async function DisplayTeacher(){
 
         innerContainer.appendChild(chordTitle);
 
-
+        chord = chord.map(chord => chord.replace("-", "#"));
         let text0=document.createElement('p');
         text0.textContent="Това е акорда ' "+TeachDropdown.value+" '. Той може да се изсвири по 3 различни начина: "+"( "+
                     chord[0]+", "+chord[1]+", "+chord[2]+" ), ( "+
@@ -82,7 +82,7 @@ async function DisplayTeacher(){
         innerContainer.appendChild(text1);
         
         let btn1=document.createElement('button');
-        chord = chord.map(chord => chord.replace("#", "-"));
+        //chord = chord.map(chord => chord.replace("#", "-"));
         
         btn1.classList.add('demo-button');
         btn1.textContent = "( "+chord[0]+", "+chord[1]+", "+chord[2]+" )";
