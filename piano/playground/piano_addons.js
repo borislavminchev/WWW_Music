@@ -6,3 +6,15 @@ piano.forEach(button => {
         inputField.value = button.id.replace("-", "#");
     })
 })
+
+
+const logging = new URLSearchParams(window.location.search).get('logging');
+if(chords !== null && logging == true) {
+    const playHistory = [];
+    piano.forEach(button => {
+        button.addEventListener("click", () => {
+            hystory.push(button.id.replace("-", "#"));
+            // console.log(hystory)
+        });
+    });
+}
