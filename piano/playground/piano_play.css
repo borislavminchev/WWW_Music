@@ -5,12 +5,9 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-<<<<<<< HEAD
     /*background-color: blue;*/
     background: linear-gradient(#006e81, #5ce2f9);
-=======
-    background-color: #BB4430;
->>>>>>> c41265d4fe5e757c91958bc402af8295f068512e
+
 }
 
 #inputContainer {
