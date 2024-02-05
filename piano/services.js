@@ -23,7 +23,6 @@ async function getNoteAudio(note) {
     return new Audio(path);
 }
 
-
 async function retriveChordNotes(chord) {
     
     const arr = await fetch("../../db/piano_chords.php", {
