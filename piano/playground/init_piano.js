@@ -5,6 +5,7 @@ const user = new URLSearchParams(window.location.search).get('user')
 if(logs !== null & logs == true) {
     let exitButton = document.createElement('button');
     exitButton.innerHTML = 'Exit';
+    exitButton.id = 'exit-button';
     exitButton.addEventListener('click', () => {
         console.log(hystory);
         hystory = [];
