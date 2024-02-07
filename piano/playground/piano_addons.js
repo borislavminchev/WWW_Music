@@ -9,7 +9,7 @@ piano.forEach(button => {
 
 
 const logging = new URLSearchParams(window.location.search).get('logging');
-if(chords !== null && logging == true) {
+if(logging !== null && logging == true) {
     const playHistory = [];
     piano.forEach(button => {
         button.addEventListener("click", () => {
