@@ -3,7 +3,7 @@ html{
 } 
 body {
     
-    background: linear-gradient(#1f8401, #80fe5a);
+    background: linear-gradient(#1f8401, #a8ff8d);
     
 }
 
@@ -15,8 +15,82 @@ body {
     padding-right: 5%;
     padding: 20px;
 }
-#demos{
+/* #demos{
 
+    text-align: center;
+    margin-right: 60%;
     margin-top: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
+    border: 1px solid black;
+    border-radius: 15px;
+    padding: 10px;
+    
+} */
+
+.demo{
+    margin: 10px;
+    padding: 5px;
+    background-color: #F3DFA2;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 5px;
+    border: none;
+}
+
+#dispt{
+
+    padding: 10px;
+    margin: 0 10px 0 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: #231F20;
+    color: #EFE6DD;
+    cursor: pointer;
+}
+
+#teacher-chord-dropdown{
+    width: 10%;
+    padding: 10px;
+    margin: 0 10px 0 10px;
+    border: none;
+    border-radius: 10px;
+    text-decoration: none;
+    background-color: #231F20;
+    color: #EFE6DD;
+}
+
+#teacher-chord-dropdown::-webkit-scrollbar{
+    width: 17px;
+	background-color: transparent;
+}
+
+#teacher-chord-dropdown::-webkit-scrollbar-thumb{
+    border-radius: 17px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #F3DFA2;
+}
+
+p{
+    font-size: 20px;
+}
+h3{
+    font-size: 26px;
+}
+
+.btn0{
+    background-color: #F3DFA2;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 5px;
+    border: none;
+}
+
+.btn{
+    margin: 10px;
+    padding: 5px;
+    background-color: #F3DFA2;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 5px;
+    border: none;
 }
