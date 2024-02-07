@@ -1,5 +1,7 @@
 const pianoTones = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']
 
+let hystory = [];
+
 function isBlackKey(index) {
     const pattern = [0,1,0,1,0,0,1,0,1,0,1,0];
     const normalizedIndex = index % pattern.length;
@@ -23,7 +25,6 @@ async function getNoteAudio(note) {
     return new Audio(path);
 }
 
-
 async function retriveChordNotes(chord) {
     
     const arr = await fetch("../../db/piano_chords.php", {
@@ -46,7 +47,7 @@ function playNote(NoteName,durration,volumeValue,millsecFromStart){
         
         const audio = await getNoteAudio(NoteName);
 
-        audio.currentTime = 0.05;
+        audio.currentTime = 0.1;
 
         audio.volume = parseFloat(volumeValue);
 
@@ -56,7 +57,7 @@ function playNote(NoteName,durration,volumeValue,millsecFromStart){
         let searchId = NoteName.toUpperCase()
         
         let locButton = keybord.querySelector('#'+searchId.replace("#", "-"));
-        const old = locButton.style.backgroundColor; 
+        //const old = locButton.style.backgroundColor; 
         locButton.style.backgroundColor = 'red';
 
         setTimeout(() => {

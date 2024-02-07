@@ -1,0 +1,54 @@
+html{
+    height: 100%;
+} 
+
+body{
+    text-align: center;
+    background: linear-gradient(30deg,#80fe5a, #5ce2f9);
+    padding-top: 15%;
+    
+}
+
+ul{
+    list-style-type: none;
+}
+
+a{
+    color: #000000;
+    cursor: pointer;
+    text-decoration-line: none;
+}
+a:hover{
+    font-weight: bold;
+}
+a:hover::before{
+    content:"𝄞 ";
+}
+
+.heading{
+    animation: heading-load 1s ease-out 0s;
+    font-size: 54px;
+}
+
+.link{
+    animation: link-load 1s ease-out 0s;
+    font-size: 28px;
+}
+
+@keyframes heading-load {
+	0% {
+		transform: translateY(-400%);
+	}
+	100% {
+		transform: translateY(0);
+	}
+}
+
+@keyframes link-load {
+	0% {
+		transform: translateY(150%);
+	}
+	100% {
+		transform: translateY(0);
+	}
+}

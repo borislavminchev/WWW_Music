@@ -48,7 +48,7 @@ function playSound1() {
         audio.currentTime = 0.1;
     }, 1500)
   
-    console.log('ok');
+    //console.log('ok');
 }
 
 function playSound2(){
@@ -77,64 +77,76 @@ function playSound3(){
     let br=0;
 
     // тя не може да обича
-    playNote('a2',8.5*timePl,1.0,br*(timePl+5));//chord
-    playNote('e3',8.5*timePl,1.0,br*(timePl+5));
+    playNote('d3',8.5*timePl,1.0,br*(timePl+5));//chord
+    playNote('a3',8.5*timePl,1.0,br*(timePl+5));
 
-    playNote('c4',timePl,1.0,br*(timePl+5));br++;
-    playNote('c4',timePl,1.0,br*(timePl+5));br++;
-    playNote('c4',timePl,1.0,br*(timePl+5));br++;
-    playNote('c4',timePl/2,1.0,br*(timePl+5));
-    playNote('c4',timePl+timePl/2,1.0,br*(timePl+5)+timePl/2);br++;br++;
-    playNote('b3',timePl/2,1.0,br*(timePl+5));
-    playNote('d4',timePl+timePl/2,1.0,br*(timePl+5)+timePl/2);br++;br++
-    playNote('c4',timePl,1.0,br*(timePl+5));br++;
+    playNote('f4',timePl,1.0,br*(timePl+5));br++;
+    playNote('f4',timePl,1.0,br*(timePl+5));br++;
+    playNote('f4',timePl,1.0,br*(timePl+5));br++;
+    playNote('f4',timePl/2,1.0,br*(timePl+5));
+    playNote('f4',timePl+timePl/2,1.0,br*(timePl+5)+timePl/2);br++;br++;
+    playNote('e4',timePl/2,1.0,br*(timePl+5));
+    playNote('g4',timePl+timePl/2,1.0,br*(timePl+5)+timePl/2);br++;br++
+    playNote('f4',timePl,1.0,br*(timePl+5));br++;
 
 
     // не познава любовта
-    playNote('a2',9*timePl,1.0,br*(timePl+5));//chord
-    playNote('e3',9*timePl,1.0,br*(timePl+5));
+    playNote('d3',9*timePl,1.0,br*(timePl+5));//chord
+    playNote('a3',9*timePl,1.0,br*(timePl+5));
 
-    playNote('c4',timePl,1.0,br*(timePl+5));br++;
-    playNote('c4',timePl,1.0,br*(timePl+5));br++;
-    playNote('c4',timePl,1.0,br*(timePl+5));br++;
-    playNote('c4',timePl/2,1.0,br*(timePl+5));
-    playNote('e4',timePl+timePl/2,1.0,br*(timePl+5)+timePl/2);br++;br++
-    playNote('d4',timePl,1.0,br*(timePl+5));br++;
-    playNote('c4',timePl,1.0,br*(timePl+5));br++;
-    playNote('b3',timePl/2,1.0,br*(timePl+5));
-    playNote('a3',timePl,1.0,br*(timePl+5)+timePl/2);br++;
+    playNote('f4',timePl,1.0,br*(timePl+5));br++;
+    playNote('f4',timePl,1.0,br*(timePl+5));br++;
+    playNote('f4',timePl,1.0,br*(timePl+5));br++;
+    playNote('f4',timePl/2,1.0,br*(timePl+5));
+    playNote('a4',timePl+timePl/2,1.0,br*(timePl+5)+timePl/2);br++;br++
+    playNote('g4',timePl,1.0,br*(timePl+5));br++;
+    playNote('f4',timePl,1.0,br*(timePl+5));br++;
+    playNote('e4',timePl/2,1.0,br*(timePl+5));
+    playNote('d4',timePl,1.0,br*(timePl+5)+timePl/2);br++;
 
     //като ледена кралица 
-    playNote('g2',9*timePl,1.0,br*(timePl+5));//chord
-    playNote('d3',9*timePl,1.0,br*(timePl+5));
+    playNote('c3',9*timePl,1.0,br*(timePl+5));//chord
+    playNote('g3',9*timePl,1.0,br*(timePl+5));
 
-    playNote('b3',timePl,1.0,br*(timePl+5));br++;
-    playNote('b3',timePl,1.0,br*(timePl+5));br++;
-    playNote('b3',timePl,1.0,br*(timePl+5));br++;
-    playNote('b3',timePl/2,1.0,br*(timePl+5));
-    playNote('b3',timePl+timePl/2,1.0,br*(timePl+5)+timePl/2);br++;br++
-    playNote('a3',timePl/2,1.0,br*(timePl+5));
-    playNote('c4',timePl+timePl/2,1.0,br*(timePl+5)+timePl/2);br++;br++
-    playNote('b3',timePl,1.0,br*(timePl+5));br++;
+    playNote('e4',timePl,1.0,br*(timePl+5));br++;
+    playNote('e4',timePl,1.0,br*(timePl+5));br++;
+    playNote('e4',timePl,1.0,br*(timePl+5));br++;
+    playNote('e4',timePl/2,1.0,br*(timePl+5));
+    playNote('e4',timePl+timePl/2,1.0,br*(timePl+5)+timePl/2);br++;br++
+    playNote('d4',timePl/2,1.0,br*(timePl+5));
+    playNote('f4',timePl+timePl/2,1.0,br*(timePl+5)+timePl/2);br++;br++
+    playNote('e4',timePl,1.0,br*(timePl+5));br++;
     
     //вледенява в теб страстта
-    playNote('f2',3.5*timePl,1.0,br*(timePl+5));//chord
-    playNote('c3',3.5*timePl,1.0,br*(timePl+5));
+    playNote('a-2',3.5*timePl,1.0,br*(timePl+5));//chord
+    playNote('f3',3.5*timePl,1.0,br*(timePl+5));
 
-    playNote('a3',timePl,1.0,br*(timePl+5));br++;
-    playNote('b3',timePl,1.0,br*(timePl+5));br++;
-    playNote('b3',timePl,1.0,br*(timePl+5));br++;
-    playNote('a3',timePl/2,1.0,br*(timePl+5));
+    playNote('d4',timePl,1.0,br*(timePl+5));br++;
+    playNote('e4',timePl,1.0,br*(timePl+5));br++;
+    playNote('e4',timePl,1.0,br*(timePl+5));br++;
+    playNote('d4',timePl/2,1.0,br*(timePl+5));
 
-    playNote('g2',2.5*timePl,1.0,br*(timePl+5));//chord
-    playNote('d3',2.5*timePl,1.0,br*(timePl+5));
+    playNote('c3',2.5*timePl,1.0,br*(timePl+5));//chord
+    playNote('g3',2.5*timePl,1.0,br*(timePl+5));
 
-    playNote('c4',timePl+timePl/2,1.0,br*(timePl+5)+timePl/2);br++;br++;
-    playNote('b3',timePl,1.0,br*(timePl+5));br++;
+    playNote('f4',timePl+timePl/2,1.0,br*(timePl+5)+timePl/2);br++;br++;
+    playNote('e4',timePl,1.0,br*(timePl+5));br++;
 
-    playNote('a2',3*timePl,1.0,br*(timePl+5));//chord
-    playNote('e3',3*timePl,1.0,br*(timePl+5));
+    playNote('d3',3*timePl,1.0,br*(timePl+5));//chord
+    playNote('a3',3*timePl,1.0,br*(timePl+5));
 
-    playNote('a3',timePl,1.0,br*(timePl+5));br++;
+    playNote('d4',timePl,1.0,br*(timePl+5));br++;
 
+}
+
+function playsound4(){
+    // Indiana Jones
+}
+
+function playsound5(){
+    // River follows in you
+}
+
+function playsound6(){
+    // The godfather
 }

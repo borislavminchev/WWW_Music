@@ -1,3 +1,8 @@
+html{
+    height: 100%;
+} 
 body {
-    background-color: pink;
+    text-align: center;
+    background: linear-gradient(30deg,#0fd419,#ff9807);
+    padding-top: 15%;
 }
