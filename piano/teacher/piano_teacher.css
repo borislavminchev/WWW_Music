@@ -9,7 +9,8 @@ body {
 
 .teacher-chord-section{
 
-    background-color: rgb(95, 155, 71);
+    border-radius: 25px;
+    background-color:#1f8401;
     margin: 3%;
     padding-left: 5%;
     padding-right: 5%;
@@ -94,3 +95,33 @@ h3{
     border-radius: 5px;
     border: none;
 }
+
+input{
+    margin-left: 20px;
+}
+
+#mysliderContainer{
+    margin: 20px;
+}
+
+/* #noteDurSlider{
+    width: 15%;
+}
+ #noteDurSlider::before{
+
+    content: "hey"; 
+    content:"Note duration in ms: "+attr(data-value)+"ms "; 
+    white-space: pre;
+} 
+
+#volSlider{
+    width:15%;
+}
+
+#volSlider::before{
+
+    content:"Volume: "+attr(data-value)+"% "; 
+
+} */
+
+

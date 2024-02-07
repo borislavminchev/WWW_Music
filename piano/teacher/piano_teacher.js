@@ -140,9 +140,13 @@ function playSound3(){
 }
 
 function playsound4(){
-    
+    // Indiana Jones
 }
 
 function playsound5(){
-    
+    // River follows in you
+}
+
+function playsound6(){
+    // The godfather
 }
