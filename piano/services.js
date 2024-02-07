@@ -57,7 +57,7 @@ function playNote(NoteName,durration,volumeValue,millsecFromStart){
         let searchId = NoteName.toUpperCase()
         
         let locButton = keybord.querySelector('#'+searchId.replace("#", "-"));
-        const old = locButton.style.backgroundColor; 
+        //const old = locButton.style.backgroundColor; 
         locButton.style.backgroundColor = 'red';
 
         setTimeout(() => {

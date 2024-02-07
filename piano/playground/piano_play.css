@@ -9,9 +9,16 @@ body {
     background: linear-gradient(#006e81, #5ce2f9);
 
 }
+#heading {
+    position: absolute;
+    top:0;
+    left:0;
+    z-index: 5;
+}
 
 #inputContainer {
     text-align: center;
+    
 }
 
 #display {
@@ -19,7 +26,8 @@ body {
     background-color: white;
     text-align: center;
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 3px solid black;
+    border-radius: 15px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -47,9 +55,9 @@ body {
 
 
 #chord-menu {
-    display: flex;
+    display: block;
     margin: 10px;
-    margin-top: 30px;
+    margin-top: 0px;
 }
 
 .chord-button {
@@ -59,7 +67,7 @@ body {
     text-decoration: none;
     border-color: none;
     border-radius: 50%;
-    margin: 0% 2% 0% 2%;
+    margin: 5px 2% 5px 2%;
     background-color: #F3DFA2;
 }
 

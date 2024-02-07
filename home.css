@@ -15,11 +15,14 @@ ul{
 
 a{
     color: #000000;
-    
+    cursor: pointer;
     text-decoration-line: none;
 }
 a:hover{
     font-weight: bold;
+}
+a:hover::before{
+    content:"𝄞 ";
 }
 
 .heading{

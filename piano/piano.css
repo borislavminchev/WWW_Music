@@ -2,7 +2,8 @@
     display: flex;
     justify-content: center;
     align-items: top;
-    margin: 0;
+    margin: 20px 0px 20px 0px;
+    
     }
     
     .piano-section > button {

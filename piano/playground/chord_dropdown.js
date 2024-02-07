@@ -1,5 +1,6 @@
 const  chordDropdown = document.createElement('select');
 chordDropdown.id = 'chord-dropdown';
+
 let emptyOption = document.createElement('option');
 emptyOption.disabled = true;
 emptyOption.selected = true;
