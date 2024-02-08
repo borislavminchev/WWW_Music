@@ -7,9 +7,12 @@ if(logs !== null & logs == true) {
     exitButton.innerHTML = 'Exit';
     exitButton.id = 'exit-button';
     exitButton.addEventListener('click', () => {
-        console.log(hystory);
+        const redirectURL = new URLSearchParams(window.location.search).get('redirectURL')
+        resultString = hystory.join("-").split("#").join("%23").split(" ").join("");
+        
+        window.location.href = `${redirectURL}?result=${resultString}`;
         hystory = [];
-        // window.location.replace(`/homepage.html?showHistory=1&user=${user}`)
+        
     })
     document.body.appendChild(exitButton);
 }
