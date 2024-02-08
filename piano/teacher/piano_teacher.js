@@ -73,7 +73,7 @@ function playSound2(){
 
 function playSound3(){
 
-    let timePl=295;// time playe
+    let timePl=295;// time played
     let br=0;
 
     // тя не може да обича
@@ -139,14 +139,131 @@ function playSound3(){
 
 }
 
-function playsound4(){
+function playSound4(){
+
     // Indiana Jones
+    let timePl=295;// time played
+    let br=0;
+    //console.log("indi");
+
+    playNote('e4',timePl/2+100,1.0,br*(timePl+5));
+    playNote('e4',timePl+100,1.0,br*(timePl+5)+timePl/2);br++;br++;
+    playNote('f4',timePl/2+100,1.0,br*(timePl+5));
+    playNote('g4',timePl/2+100,1.0,br*(timePl+5)+timePl/2);br++;
+    playNote('c5',timePl*5+100,1.0,br*(timePl+5));br+=3;
+
+    playNote('d4',timePl+100,1.0,br*(timePl+5));br++;
+    playNote('e4',timePl/2+100,1.0,br*(timePl+5));br++;
+    playNote('f4',timePl*2+100,1.0,br*(timePl+5));br+=3;
+
+    playNote('g4',timePl/2+100,1.0,br*(timePl+5));
+    playNote('g4',timePl+100,1.0,br*(timePl+5)+timePl/2);br++;br++;
+    playNote('a4',timePl/2+100,1.0,br*(timePl+5));
+    playNote('b4',timePl/2+100,1.0,br*(timePl+5)+timePl/2);br++;
+    playNote('f5',timePl*5+100,1.0,br*(timePl+5));br+=3;
+
+    playNote('a4',timePl+100,1.0,br*(timePl+5));br++;
+    playNote('b4',timePl/2+100,1.0,br*(timePl+5)+timePl/2);
+    playNote('c5',timePl*2+100,1.0,br*(timePl+5)+timePl);br++;br++;
+    playNote('d5',timePl*2+100,1.0,br*(timePl+5));br++;br++;
+    playNote('e5',timePl+100,1.0,br*(timePl+5)+timePl/2);
+    //----------
+
+    playNote('e4',timePl/2+100,1.0,br*(timePl+5));
+    playNote('e4',timePl+100,1.0,br*(timePl+5)+timePl/2);br++;br++;
+    playNote('f4',timePl/2+100,1.0,br*(timePl+5));
+    playNote('g4',timePl/2+100,1.0,br*(timePl+5)+timePl/2);br++;
+    playNote('c5',timePl*5+100,1.0,br*(timePl+5));br+=3;
+
+    playNote('d5',timePl+100,1.0,br*(timePl+5));br++;
+    playNote('e5',timePl/2+100,1.0,br*(timePl+5));br++;
+    playNote('f5',timePl*2+100,1.0,br*(timePl+5));br++;
+
+    playNote('c5',timePl+100,1.0,br*(timePl+5));br++;
+    playNote('a4',timePl+100,1.0,br*(timePl+5)+timePl/2);br++;
+    playNote('g4',timePl+10,1.0,br*(timePl+5));br++;
+
+    playNote('d5',timePl/2+100,1.0,br*(timePl+5)+timePl/2);br++;
+    playNote('c5',timePl/2+100,1.0,br*(timePl+5));
+    playNote('g4',timePl/4+10,1.0,br*(timePl+5)+timePl/2);br++;
+
 }
 
-function playsound5(){
+function playSound5(){
     // River follows in you
+    let timePl=495;// time played
+    let br=0;
+
+    playNote('a2',6*timePl+100,1.0,br*(timePl+5));
+    playNote('a3',2*timePl+100,1.0,br*(timePl+5));
+    playNote('c5',timePl+100,1.0,br*(timePl+5));br++;
+    playNote('e4',2*timePl+100,1.0,br*(timePl+5));
+    playNote('b4',timePl+100,1.0,br*(timePl+5));br++;
+    playNote('a4',2*timePl+100,1.0,br*(timePl+5));
+    playNote('c5',timePl,1.0,br*(timePl+5));br++;
+    playNote('b4',timePl,1.0,br*(timePl+5));br++;
+
+    playNote('f2',6*timePl+100,1.0,br*(timePl+5));
+    playNote('f3',2*timePl+100,1.0,br*(timePl+5));
+    playNote('c5',timePl+100,1.0,br*(timePl+5));br++;
+    playNote('c4',2*timePl+100,1.0,br*(timePl+5));
+    playNote('g4',timePl+100,1.0,br*(timePl+5));br++;
+    playNote('f4',2*timePl+100,1.0,br*(timePl+5));
+    playNote('c5',timePl+100,1.0,br*(timePl+5));br++;
+    playNote('f4',timePl*6+100,1.0,br*(timePl+5));br+=4;
+
+    playNote('a4',3*timePl+200,1.0,br*(timePl+5));
+    playNote('a5',3*timePl+200,1.0,br*(timePl+5));
+    playNote('c6',timePl+100,1.0,br*(timePl+5));br++;
+    playNote('b5',timePl+100,1.0,br*(timePl+5));br++;
+    playNote('c6',timePl+100,1.0,br*(timePl+5));br++;
+    playNote('b5',timePl+50,1.0,br*(timePl+5));br++;
+
+    playNote('f4',4*timePl+100,1.0,br*(timePl+5));
+    playNote('f5',4*timePl+100,1.0,br*(timePl+5));
+    playNote('c6',timePl+100,1.0,br*(timePl+5));br++;
+    playNote('g5',timePl+100,1.0,br*(timePl+5));br++;
+    playNote('c6',timePl+100,1.0,br*(timePl+5));br++;
+    playNote('f5',timePl*6+100,1.0,br*(timePl+5));br+=6;
+
 }
 
-function playsound6(){
+function playSound6(){
     // The godfather
+
+    let timePl=495;// time played
+    let br=0;
+
+    playNote('a4',timePl+100,1.0,br*(timePl+5));br++;
+    playNote('d5',timePl+100,1.0,br*(timePl+5));br++;
+    playNote('f5',timePl+100,1.0,br*(timePl+5));br++;
+
+
+    playNote('d3',2*timePl+100,1.0,br*(timePl+5));
+    playNote('e5',timePl+100,1.0,br*(timePl+5));br++;
+    playNote('a3',2*timePl+100,1.0,br*(timePl+5));
+    playNote('d5',timePl+100,1.0,br*(timePl+5));br++;
+    playNote('d4',3*timePl+100,1.0,br*(timePl+5));
+    playNote('f4',3*timePl+100,1.0,br*(timePl+5));
+    playNote('a4',3*timePl+100,1.0,br*(timePl+5));
+    playNote('f5',timePl+100,1.0,br*(timePl+5));br++;
+    playNote('d5',timePl+100,1.0,br*(timePl+5));br++;
+
+    playNote('g2',2*timePl+100,1.0,br*(timePl+5));
+    playNote('e5',timePl+100,1.0,br*(timePl+5));br++;
+    playNote('a-2',2*timePl+100,1.0,br*(timePl+5));
+    playNote('d5',timePl+100,1.0,br*(timePl+5));br++;
+    playNote('g3',4*timePl+100,1.0,br*(timePl+5));
+    playNote('a-3',4*timePl+100,1.0,br*(timePl+5));
+    playNote('d4',4*timePl+100,1.0,br*(timePl+5));
+    playNote('a-4',timePl+100,1.0,br*(timePl+5));br++;
+    playNote('c5',timePl+100,1.0,br*(timePl+5));br++;
+    playNote('d3',2*timePl+100,1.0,br*(timePl+5));
+    playNote('a4',4*timePl+100,1.0,br*(timePl+5));br++;
+
+    playNote('a3',1*timePl+100,1.0,br*(timePl+5));br++;
+    playNote('d4',1*timePl+100,1.0,br*(timePl+5));br++;
+    playNote('e4',1*timePl+100,1.0,br*(timePl+5));br++;
+    playNote('f4',1*timePl+100,1.0,br*(timePl+5));br++;
+
 }
