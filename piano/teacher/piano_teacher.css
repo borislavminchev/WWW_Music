@@ -38,6 +38,16 @@ body {
     border: none;
 }
 
+.demo2{
+    margin: 10px;
+    padding: 5px;
+    background-color: #eb4040;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 5px;
+    border: none;
+}
+
 #dispt{
 
     padding: 10px;
