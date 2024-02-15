@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $requestData = json_decode($jsonData, true);
     
     if ($requestData !== null) {
-        $paramString =  http_build_query(["chord" => $requestData["chord"], "user" => $requestData["user"], "logging" => true]);
+        $paramString =  http_build_query(["chord" => $requestData["chord"], "user" => $requestData["user"], "logging" => true, "redirectURL" => "/demo.php"]);
         $url = "$targetUrl?$paramString";
         exec("start \"\" \"$host$url\"");
         exit;
