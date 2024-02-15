@@ -25,11 +25,13 @@
 // document.body.appendChild(sliderContainer);
 
 
-let addchordbutt = document.createElement('button');
-addchordbutt.addEventListener('click', () => DisplayTeacher());
-addchordbutt.innerHTML = 'DisplayTeacher button';
-addchordbutt.id='dispt';
-document.body.appendChild(addchordbutt);
+// Display teacher button - optional, if you want it uncomment
+
+// let addchordbutt = document.createElement('button');
+// addchordbutt.addEventListener('click', () => DisplayTeacher());
+// addchordbutt.innerHTML = 'DisplayTeacher button';
+// addchordbutt.id='dispt';
+// document.body.appendChild(addchordbutt);
 
 let TeachDropdown = document.createElement('select');
 TeachDropdown.id = 'teacher-chord-dropdown';
@@ -49,45 +51,58 @@ TeachDropdown.addEventListener('change', () => {
     DisplayTeacher()
 })
 
-for(let i=0;i<12;i++){
+// sol.1 - hard code the dropdown
+// for(let i=0;i<12;i++){
 
-    let optionMaj = document.createElement('option');
-    optionMaj.text = pianoTones[i]+'';
-    optionMaj.value = pianoTones[i]+'';
-    TeachDropdown.appendChild(optionMaj);
+//     let optionMaj = document.createElement('option');
+//     optionMaj.text = pianoTones[i]+'';
+//     optionMaj.value = pianoTones[i]+'';
+//     TeachDropdown.appendChild(optionMaj);
 
-    let optionMin = document.createElement('option');
-    optionMin.text = pianoTones[i]+'m';
-    optionMin.value = pianoTones[i]+'m';
-    TeachDropdown.appendChild(optionMin);
+//     let optionMin = document.createElement('option');
+//     optionMin.text = pianoTones[i]+'m';
+//     optionMin.value = pianoTones[i]+'m';
+//     TeachDropdown.appendChild(optionMin);
 
-    let option2= document.createElement('option');
-    option2.text = pianoTones[i]+'2';
-    option2.value = pianoTones[i]+'2';
-    TeachDropdown.appendChild(option2);
+//     let option2= document.createElement('option');
+//     option2.text = pianoTones[i]+'2';
+//     option2.value = pianoTones[i]+'2';
+//     TeachDropdown.appendChild(option2);
 
-    let option4 = document.createElement('option');
-    option4.text = pianoTones[i]+'4';
-    option4.value = pianoTones[i]+'4';
-    TeachDropdown.appendChild(option4);
+//     let option4 = document.createElement('option');
+//     option4.text = pianoTones[i]+'4';
+//     option4.value = pianoTones[i]+'4';
+//     TeachDropdown.appendChild(option4);
 
+// }
+
+
+// sol.2 - read from DB to create the dropdown
+async function loadChords() {
+    const arr = await fetch("../../db/piano_chords.php", {
+        method: 'GET',
+    });
+
+    return arr.json();
 }
 
-// async function retriveChordNotes(chord) {
-    
-//     const arr = await fetch("../../db/piano_chords.php", {
-//         method: 'POST',
-//         headers: {
-//             'Content-Type': 'application/json'
-//         },
-//         body: JSON.stringify({
-//             "chord": chord
-//         })
-//     })
-    
+function createChordOption(chord) {
+    let chordOption = document.createElement('option');
+    chordOption.value = chord;
+    chordOption.text = chord; 
+    return chordOption;
+}
 
-//     return arr.json();
-// }
+async function addChordOptions(container) {
+    
+    const chords = await loadChords();
+    chords.forEach( chord => {
+        container.appendChild(createChordOption(chord));
+    });
+}
+
+addChordOptions(TeachDropdown);
+
 
 async function DisplayTeacher(){
     let chord = await retriveChordNotes(TeachDropdown.value)//fetch
@@ -107,7 +122,7 @@ async function DisplayTeacher(){
 
         let innerContainer = document.createElement('section');
         let chordTitle=document.createElement('h3');
-        chordTitle.textContent=" ' "+TeachDropdown.value+" chord '";
+        chordTitle.textContent=TeachDropdown.value+" chord ";
 
         innerContainer.appendChild(chordTitle);
 
@@ -176,14 +191,17 @@ async function DisplayTeacher(){
         checkbox1.addEventListener('click', () => turnOffOtherCheckbox(checkbox2));
 
         var labelcheckbox1 = document.createElement('label');
+        labelcheckbox1.id="bassL";
+        labelcheckbox1.appendChild(checkbox1);
         labelcheckbox1.appendChild(document.createTextNode('Бас'));
 
-        innerContainer.appendChild(checkbox1);
+        
         innerContainer.appendChild( labelcheckbox1);
 
 
         let BassDropdown = document.createElement('select');
-        BassDropdown.class = 'bass-chord-dropdown';
+        BassDropdown.class = 'myDropdown';
+        BassDropdown.id="bassDropdown";
         let option0 = document.createElement('option');
         option0.text = chord[0];
         option0.value = chord[0];
@@ -205,13 +223,16 @@ async function DisplayTeacher(){
         checkbox2.addEventListener('click',() => turnOffOtherCheckbox(checkbox1));
 
         var labelcheckbox2 = document.createElement('label');
+        labelcheckbox2.id="otherBassL";
+        labelcheckbox2.appendChild(checkbox2);
         labelcheckbox2.appendChild(document.createTextNode('Друг Бас'));
 
-        innerContainer.appendChild(checkbox2);
+        
         innerContainer.appendChild( labelcheckbox2);
 
         let OtherBassDropdown = document.createElement('select');
-        OtherBassDropdown.class = 'bass-chord-dropdown';
+        OtherBassDropdown.class = 'myDropdown';
+        OtherBassDropdown.id="otherBassDropdown";
         for(let i=0;i<12;i++){
 
             const option = document.createElement('option');
@@ -223,12 +244,15 @@ async function DisplayTeacher(){
         innerContainer.appendChild(OtherBassDropdown);
 
         var checkbox3 = document.createElement('input');
+        checkbox3.id="harmonyI";
         checkbox3.type = 'checkbox';
 
         var labelcheckbox3 = document.createElement('label');
+        labelcheckbox3.id="harmonyL";
+        labelcheckbox3.appendChild(checkbox3);
         labelcheckbox3.appendChild(document.createTextNode('Хармония'));
 
-        innerContainer.appendChild(checkbox3);
+        
         innerContainer.appendChild( labelcheckbox3);
 
         locContainer.appendChild(innerContainer);
@@ -263,6 +287,7 @@ const letterToNumberMap = {
     0: 'C',1: 'C#',2: 'D',3: 'D#',4: 'E',5: 'F',    
     6: 'F#',7: 'G',8: 'G#',9: 'A',10: 'A#',11: 'B'
   };
+
 function compareLetters(letter1, letter2) {
     const number1 = letterToNumberMap[letter1];
     const number2 = letterToNumberMap[letter2];
@@ -271,58 +296,26 @@ function compareLetters(letter1, letter2) {
 
 function playDemoChord(chord,bass,begg_bass,harmony,inversion){// (array notes,bool,note,bool,mode)
 
-    let note0,note1,note2,other=0;
-    if (compareLetters(chord[0],chord[1])){
-        if(compareLetters(chord[1],chord[2])){
-            note0=0;
-            note1=1;
-            note2=2;
-            other=0;
-            console.log("0");
-        }
-        else{
-            if(compareLetters(chord[0],chord[2])){
-                note0=0;
-                note1=2;
-                note2=1;
-                other=1;
-                console.log("1");
-                //console.log("err");
-            }
-            note0=1;
-            note1=2;
-            note2=0;
-            other=1;
-            console.log("1*");
-        }
+    let note0,note1,note2,other=-1;
+    if (compareLetters(chord[0],chord[1])&&compareLetters(chord[1],chord[2])){
+        note0=0;note1=1;note2=2;other=0;
     }
-    else{
-        if(compareLetters(chord[0],chord[2])){
-            note0=1;
-            note1=0;
-            note2=2;
-            other=2;
-            console.log("2*");
-            //console.log("err");
-        }
-        else{
-            if(compareLetters(chord[1],chord[2])){
-                note0=2;
-                note1=0;
-                note2=1;
-                other=2;
-                console.log("2");
-            }
-            note0=2;
-            note1=1;
-            note2=0;
-            other=0;
-            console.log("0*");
-        }
+    if (compareLetters(chord[2],chord[0])&&compareLetters(chord[0],chord[1])){
+        note0=2;note1=0;note2=1;other=1;
     }
-    console.log("inversion-"+inversion+" other-"+other);
-    console.log("note0="+note0+" note1="+note1+" note2="+note2);
-    invother=inversion+other;
+    if (compareLetters(chord[1],chord[2])&&compareLetters(chord[2],chord[0])){
+        note0=1;note1=2;note2=0;other=2;
+    }
+    //console.log("inversion-"+inversion+" other-"+other);
+    //console.log("note0="+note0+" note1="+note1+" note2="+note2);
+    invother=6+inversion-other;
+    if(other==1){
+        invother--;
+    }
+    if(other==2){
+        invother--;
+        invother--;
+    }
     //invother=inversion;
     if(invother%3==0){
         playNote(chord[note0]+'4',4000,0.8,0);

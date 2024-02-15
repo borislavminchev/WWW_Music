@@ -1,3 +1,6 @@
+ 
+ // solution 1 - hard coded songs
+
 function playSound1() {
 
     let volValue=0.5;
@@ -266,4 +269,48 @@ function playSound6(){
     playNote('e4',1*timePl+100,1.0,br*(timePl+5));br++;
     playNote('f4',1*timePl+100,1.0,br*(timePl+5));br++;
 
+}
+
+// solution 2 - read notes from DB
+
+
+
+function playSound2_DB(){
+
+    let speedBoost = 1; // [0:1] - slower, [1,inf] - faster, not nessesery hole numbers,recomend {0.5 to 2}
+    let vol=100.0; // volume in %
+    playSong('demo',speedBoost,vol);
+
+}
+
+function playSound3_DB(){
+
+    let speedBoost = 1;
+    let vol=100.0;
+    playSong('iceQueen',speedBoost,vol);
+    
+}
+
+function playSound4_DB(){
+
+    let speedBoost = 1;
+    let vol=100.0;
+    playSong('Indiana Jones',speedBoost,vol);// no data in DB
+    
+}
+
+function playSound5_DB(){
+
+    let speedBoost = 1;
+    let vol=100.0;
+    playSong('River follows in you',speedBoost,vol);
+    
+}
+
+function playSound6_DB(){
+
+    let speedBoost = 1;
+    let vol=100.0;
+    playSong('God father',speedBoost,vol);
+    
 }

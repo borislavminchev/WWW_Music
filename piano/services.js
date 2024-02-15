@@ -41,8 +41,40 @@ async function retriveChordNotes(chord) {
     return arr.json();
 }
 
-function playNote(NoteName,durration,volumeValue,millsecFromStart){
+async function retriveSongNotes(song){
+
+    const arr = await fetch("../../db/piano_songs.php", {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            "song": song
+        })
+    })
+
+
+    return arr.json();
+}
+
+async function playSong(song,m,v){
+    // "m" is a speed multiplier
+    const s= await retriveSongNotes(song);
+    console.log(s);
+
+    s.forEach(note =>{
+        console.log(note);
+        console.log(note["note_name"]);
+
+        playNote(note["note_name"],note['duration']/m,(note['volume']/100.0)*(v/100),note["at_time_played"]/m);
+        //console.log("hey");
+    })
+
+}
+
+async function playNote(NoteName,durration,volumeValue,millsecFromStart){
     
+
     setTimeout(async () => {
         
         const audio = await getNoteAudio(NoteName);
@@ -74,6 +106,18 @@ function playNote(NoteName,durration,volumeValue,millsecFromStart){
 
         
     }, millsecFromStart)
+}
+
+function pauseAllAudio() {
+    const audioElements = document.querySelectorAll('audio');
+    console.log(audioElements.length);
+    var s=audioElements.length;
+    for (let i = 0; i < s; i++) {
+      if (!audioElements[i].paused) {
+        audioElements[i].pause();
+        //console.log("hey");
+      }
+    }
 }
 
 async function playChord(chord, gama=4) {
